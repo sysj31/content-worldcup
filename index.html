@@ -1179,19 +1179,6 @@
 
     const div = document.createElement("div"); div.className="divider";
 
-    const noteLabel = document.createElement("div");
-    noteLabel.className="noteLabel";
-    noteLabel.textContent = (t.phase==="criteria")
-      ? "📝 이 기준을 고르는 이유(한 줄):"
-      : "📝 이번 선택의 '기준'을 한 줄로 남겨두세요(발표용):";
-
-    const inp = document.createElement("input");
-    inp.type="text";
-    inp.placeholder = (t.phase==="criteria")
-      ? "예) '나는 콘텐츠를 볼 때 완성도를 가장 신뢰한다'"
-      : "예) 몰입감 / 공감 / 화제성 / 작품성 / 메시지 / 배우 / 웃김 / 편안함 …";
-    inp.value = t.quickNote ?? "";
-    inp.addEventListener("input",(e)=>{ t.quickNote=e.target.value; save(); });
 
     const footer = document.createElement("div");
     footer.className="footerRow";
@@ -1202,10 +1189,7 @@
 
     frag.appendChild(duel);
     frag.appendChild(div);
-    if(t.phase === "criteria"){
-      frag.appendChild(noteLabel);
-      frag.appendChild(inp);
-    }
+   
     frag.appendChild(footer);
 
     if(t.phase==="criteria"){
